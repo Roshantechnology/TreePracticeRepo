@@ -1,35 +1,37 @@
 package in.ineuron;
 
+import java.util.Arrays;
+
 public class First {
+	    public  int[][] construct2DArray(int[] original, int m, int n) {
+	    int [][] arr=new int [m][n];
+	    if(original.length!=m*n)return new int[0][0];
+	    int ix=0;
+	         for(int i=0;i<arr.length;i++) {
+	         for(int j=0;j<arr[0].length;j++){
+	         arr[i][j]=original[ix++];
+	              
+	         }
+	      
+	     }
+	     return arr;
+	    }
 	
-		void findCommon(int ar1[], int ar2[], int ar3[])
-		{
-			int i = 0, j = 0, k = 0;
-			while (i < ar1.length && j < ar2.length
-				&& k < ar3.length) {
-				if (ar1[i] == ar2[j] && ar2[j] == ar3[k]) {
-					System.out.print(ar1[i] + " ");
-					i++;
-					j++;
-					k++;
-				}
-				else if (ar1[i] < ar2[j])
-					i++;
-				else if (ar2[j] < ar3[k])
-					j++;
-				else
-					k++;
-			}
-		}
-		public static void main(String args[])
-		{
-			First ob = new First();
-
-			int ar1[] = { 1,2,3,4,5};
-			int ar2[] = { 1,2,5,7,9 };
-			int ar3[] = {1,3,4,5,8 };
-
-			System.out.print("Common elements are :: ");
-			ob.findCommon(ar1, ar2, ar3);
-		}
+	public static void main(String[] args)
+	{
+		int original[]= {1,2,3,4};
+		int m=2;
+		int n=2;
+		First first = new First();
+		int[][] construct2dArray = first.construct2DArray(original, m, n);
+		System.out.println(Arrays.toString(original));
+		System.out.println(Arrays.deepToString(construct2dArray));
+		
 	}
+}
+
+
+	
+
+
+

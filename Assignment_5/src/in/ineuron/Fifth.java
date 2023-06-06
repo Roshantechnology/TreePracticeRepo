@@ -1,30 +1,36 @@
 package in.ineuron;
 
 public class Fifth {
-		  public int arrangeCoins(int n) {
-		    long left = 0, right = n;
-		    long k, curr;
-		    while (left <= right) {
-		      k = left + (right - left) / 2;
-		      curr = k * (k + 1) / 2;
-
-		      if (curr == n) return (int)k;
-
-		      if (n < curr) {
-		        right = k - 1;
-		      } else {
-		        left = k + 1;
-		      }
-		    }
-		    return (int)right;
-		  }
+	    public int findTheDistanceValue(int[] arr1, int[] arr2, int d) {
+	        int count=0;
+	        int x=0;
+	        for(int i=0;i<arr1.length;i++){
+	            x=0;
+	            for(int j=0;j<arr2.length;j++){
+	                int diff=Math.abs(arr1[i]-arr2[j]);
+	                if(diff<=d){
+	                    j=arr2.length;
+	                }
+	                else{
+	                    x++;
+	                }
+	            }
+	            if(x==arr2.length){
+	                count++;
+	            }
+	        }
+	        return count;
+	    
+	}
+	public static void main(String[] args) {
+		int arr1[]= {4,5,8};
+		int arr2[]= {10,9,1,8};
+		int d=2;
 		
-	public static void main(String[] args) 
-	{
-		int n=5;
-	Fifth fifth = new Fifth();
-	int arrangeCoins = fifth.arrangeCoins(n);
-	System.out.println(arrangeCoins);
+		Fifth fifth = new Fifth();
+		int findTheDistanceValue = fifth.findTheDistanceValue(arr1, arr2, d);
+		System.out.println(findTheDistanceValue);
+		
 
 	}
 
